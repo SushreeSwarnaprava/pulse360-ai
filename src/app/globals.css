@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --page-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0; /* E2E8F0 */
+  --text-primary: #0F172A; /* slate-900 */
+  --text-secondary: #6B7280; /* slate-500 */
+  --label: #94A3B8; /* slate-400 */
+  --primary: #2563EB; /* blue */
+  --muted: #F1F5F9;
+  --shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --card-radius: 16px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--page-bg);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root.dark-mode {
+  --page-bg: #0F172A;
+  --card-bg: #111827;
+  --card-border: #1F2937;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --label: #CBD5E1;
+  --muted: #111827;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+html, body {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Card baseline used across the app */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(15,23,42,0.08); }
+
+/* KPI card variant */
+.kpi-card { height: 140px; display: flex; flex-direction: column; justify-content: space-between; }
+.kpi-label { font-size: 11px; text-transform: uppercase; color: var(--label); letter-spacing: 0.06em; }
+.kpi-value { font-size: 28px; font-weight: 700; color: var(--text-primary); }
+.kpi-trend { font-size: 12px; color: var(--text-secondary); }
+
+/* Buttons */
+.btn-primary { background-color: var(--primary); color: white; border-radius: 8px; padding: 8px 12px; }
+.btn-secondary { background: white; border: 1px solid var(--primary); color: var(--primary); border-radius: 8px; padding: 8px 12px; }
+
+/* Table card and table styles */
+.table-card { overflow: hidden; border-radius: 16px; }
+.table-card table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.table-card thead th { position: sticky; top: 0; background: var(--card-bg); border-bottom: 1px solid var(--card-border); z-index: 10; }
+.table-card tbody tr:nth-child(odd) { background: #FFFFFF; }
+.table-card tbody tr:nth-child(even) { background: #FBFDFF; }
+.table-card tbody tr:hover { background: #F1F5F9; }
+
+/* Health indicator colors remain green/yellow/red */
+.health-green { background: #16A34A; }
+.health-yellow { background: #F59E0B; }
+.health-red { background: #EF4444; }
+
+/* Search input styling (white box) */
+.search-input { background: #FFFFFF; border: 1px solid var(--card-border); padding: 8px 12px; border-radius: 10px; box-shadow: 0 1px 2px rgba(2,6,23,0.04); }
+
+/* Notification dropdown */
+.notif-dropdown { width: 320px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; box-shadow: 0 10px 30px rgba(2,6,23,0.06); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) { .card, .kpi-card, * { transition: none !important; } }
+
+
