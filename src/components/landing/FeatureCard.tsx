@@ -2,16 +2,17 @@ type FeatureCardProps = {
   title: string;
   description: string;
   icon: string;
+  titleClassName?: string;
 };
 
-export default function FeatureCard({ title, description, icon }: FeatureCardProps) {
+export default function FeatureCard({ title, description, icon, titleClassName = "" }: FeatureCardProps) {
   return (
-    <article className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(37,99,235,0.16)]">
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-lg text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
+    <article className="group rounded-[26px] border border-[#E4D9CC] bg-[#FFFCF8] p-7 shadow-[0_8px_20px_rgba(17,17,17,0.025)] transition duration-300 hover:-translate-y-0.5 hover:border-[#D2BE95]">
+      <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D9CBB7] bg-[#F8F5F0] text-sm font-medium tracking-[0.14em] text-[#B68C3A] transition group-hover:border-[#B68C3A]">
         {icon}
       </div>
-      <h3 className="mt-4 text-lg font-semibold text-slate-900">{title}</h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+      <h3 className={`${titleClassName} mt-5 text-xl font-medium text-[#111111]`}>{title}</h3>
+      <p className="mt-3 text-sm leading-7 text-[#5E564C]">{description}</p>
     </article>
   );
 }

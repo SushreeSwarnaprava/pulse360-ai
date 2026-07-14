@@ -4,7 +4,7 @@ type TechBadgeProps = {
 
 export default function TechBadge({ label }: TechBadgeProps) {
   return (
-    <div className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700">
+    <div className="rounded-full border border-[#E2D7CA] bg-[#FFFCF8] px-5 py-2.5 text-sm font-medium text-[#4F483F] transition hover:border-[#B68C3A] hover:text-[#111111]">
       {label}
     </div>
   );
