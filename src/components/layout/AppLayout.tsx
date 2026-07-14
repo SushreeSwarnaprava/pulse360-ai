@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import SearchBar from "../SearchBar";
 import CommandPalette from "../CommandPalette";
 import Notifications from "../Notifications";
@@ -22,7 +23,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-3">
             <SidebarToggle />
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 flex items-center justify-center rounded-md bg-[#2563EB] text-white">P</div>
+              <Image
+                src="/pulse360-logo-mark.svg"
+                alt="Pulse360 AI"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-md"
+              />
               <h1 className="text-lg font-semibold text-white">Pulse360 AI</h1>
             </div>
             <div className="hidden md:block text-sm text-white">AI Customer Success Workspace</div>

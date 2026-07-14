@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FeatureCard from "../components/landing/FeatureCard";
 import SectionHeading from "../components/landing/SectionHeading";
 import TechBadge from "../components/landing/TechBadge";
@@ -44,7 +45,13 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-[#0F172A] text-white backdrop-blur">
         <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#2563EB] text-sm font-semibold">P</div>
+            <Image
+              src="/pulse360-logo-mark.svg"
+              alt="Pulse360 AI"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-md"
+            />
             <span className="text-sm font-semibold tracking-wide">Pulse360 AI</span>
           </Link>
 

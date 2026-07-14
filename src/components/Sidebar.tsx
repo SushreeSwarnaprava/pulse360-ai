@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -33,7 +34,13 @@ export default function Sidebar() {
       <div>
         <div className="px-4 py-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[#2563EB] text-white">P</div>
+            <Image
+              src="/pulse360-logo-mark.svg"
+              alt="Pulse360 AI"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-md"
+            />
             <div>
               <div className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Pulse360 AI</div>
               <div className="text-xs" style={{ color: "var(--text-secondary)" }}>AI Customer Success Workspace</div>
