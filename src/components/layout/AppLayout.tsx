@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import SearchBar from "../SearchBar";
 import CommandPalette from "../CommandPalette";
 import Notifications from "../Notifications";
@@ -8,6 +9,12 @@ import Sidebar from "../Sidebar";
 import SidebarToggle from "../SidebarToggle";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return <div className="min-h-full">{children}</div>;
+  }
+
   return (
     <div className="min-h-full flex flex-col">
       <header style={{ background: "#0F172A" }} className="shadow-sm">
